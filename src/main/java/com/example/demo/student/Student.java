@@ -2,9 +2,14 @@ package com.example.demo.student;
 
 
 
+import com.example.demo.subject.Subject;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class Student {
@@ -12,6 +17,9 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id ;
+
+    @ManyToMany(mappedBy = "enrolledStudents")
+   private Set<Subject> subjects=new HashSet<>();
 
     private String name ;
 
@@ -38,5 +46,9 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Subject> getSubjects() {
+        return subjects;
     }
 }
