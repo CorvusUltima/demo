@@ -38,5 +38,7 @@ public class Subject {
     }
 
 
-
+    public void enrollStudent(Student student) {
+        enrolledStudents.add(student);
+    }
 }
